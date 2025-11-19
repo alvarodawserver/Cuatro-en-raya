@@ -11,6 +11,7 @@ function crearTablero(){
        let filaTablero = []
         for (let col = 0; col < n_tablero; col++) {
             let celda = document.createElement("div")
+            celda.setAttribute("id",`${fila}${col}`)
             celda.classList.add("celda");
             celda.addEventListener("click",clicarCelda)
             div_celdas.appendChild(celda);
@@ -19,6 +20,7 @@ function crearTablero(){
        tablero.push(filaTablero)
     }
 }
+console.log(tablero)
 function main(){
     crearTablero()
     
@@ -33,6 +35,7 @@ function validar_fila(jugador){
                     if(tablero[fila][col].textContent == 'X'){
                         cont_x++
                         if(cont_x == 4){
+                            alert("Jugador 1 ha ganado")
                             mostrarGanador(jugador)
                         }
                     }else{
